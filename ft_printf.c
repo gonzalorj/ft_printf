@@ -6,7 +6,7 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:58:49 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/07 17:13:02 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/07 17:34:41 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str == '%')
 		{
-			len += ft_check_format(args, *str + 1);
+			len += ft_check_format(args, *(str + 1));
 			str++;
 		}
 		else
@@ -58,8 +58,10 @@ int	ft_printf(const char *str, ...)
 	return (len);
 }
 
-int main ()
+/*
+int main()
 {
-	int n = 2;
-	ft_printf("Hola %d", n);
+	ft_printf("%s", "-");
+	return (0);
 }
+*/
