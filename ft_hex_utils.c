@@ -6,18 +6,17 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 11:48:54 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/07 14:03:44 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/07 16:11:59 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_hexlen(int n)
+int	ft_hexlen(int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
-
 	while (n)
 	{
 		n = n / 16;
@@ -26,7 +25,7 @@ int ft_hexlen(int n)
 	return (len);
 }
 
-void ft_puthex(int n , const char format)
+void	ft_puthex(int n, const char format)
 {
 	while (n > 16)
 	{
@@ -45,8 +44,8 @@ void ft_puthex(int n , const char format)
 	}
 }
 
-int ft_printhex(int n, const char format)
+int	ft_printhex(int n, const char format)
 {
 	ft_puthex(n, format);
-	return(ft_hexlen(n));
+	return (ft_hexlen(n));
 }

@@ -6,15 +6,15 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 13:48:56 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/07 14:04:14 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/07 16:11:55 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n < 0)
@@ -36,9 +36,9 @@ int ft_putnbr(int n)
 	return (len);
 }
 
-int ft_put_unsignednbr(int n)
+int	ft_put_unsignednbr(int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n >= 10)
