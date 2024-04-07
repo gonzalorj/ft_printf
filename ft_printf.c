@@ -6,7 +6,7 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:58:49 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/07 16:21:10 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/07 17:13:02 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,16 @@ int	ft_printf(const char *str, ...)
 			len += ft_check_format(args, *str + 1);
 			str++;
 		}
+		else
+			len += ft_putchar(*str);
 		str++;
 	}
 	va_end(args);
 	return (len);
+}
+
+int main ()
+{
+	int n = 2;
+	ft_printf("Hola %d", n);
 }

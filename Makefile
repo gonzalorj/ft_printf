@@ -6,7 +6,7 @@
 #    By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/03 13:10:15 by gorodrig          #+#    #+#              #
-#    Updated: 2024/04/07 16:11:59 by gorodrig         ###   ########.fr        #
+#    Updated: 2024/04/07 16:24:24 by gorodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ AR = ar rcs
 SOURCES = ft_hex_utils.c \
 						ft_printf.c \
 						ft_ptr_utils.c \
-						ft_putchar.c. \
+						ft_putchar.c \
 						ft_putnbr_utils.c \
 						ft_putstr.c \
 
