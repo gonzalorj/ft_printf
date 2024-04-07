@@ -6,31 +6,11 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:58:49 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/07 16:11:58 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/07 16:21:10 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_printf(const char *format, ...)
-{
-	va_list	args;
-	int		len;
-
-	len = 0;
-	va_start (args, format);
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			len += ft_check_format(*format + 1, args);
-			format++;
-		}
-		format++;
-	}
-	va_end(args);
-	return (len);
-}
 
 static int	ft_check_format(va_list arg, const char format)
 {
@@ -38,11 +18,11 @@ static int	ft_check_format(va_list arg, const char format)
 
 	len = 0;
 	if (format == 'c')
-		len += ft_putchar(va_arg(arg, char));
+		len += ft_putchar(va_arg(arg, int));
 	else if (format == 's')
 		len += ft_putstr(va_arg(arg, char *));
 	else if (format == 'p')
-		len += ft_putptr(va_arg(arg, intptr_t));
+		len += ft_printptr(va_arg(arg, intptr_t));
 	else if (format == 'd' || format == 'i')
 		len += ft_putnbr(va_arg(arg, int));
 	else if (format == 'u')
@@ -53,5 +33,25 @@ static int	ft_check_format(va_list arg, const char format)
 		len += ft_putchar('%');
 	else
 		len += ft_putchar(format);
+	return (len);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	va_list	args;
+	int		len;
+
+	len = 0;
+	va_start (args, str);
+	while (*str)
+	{
+		if (*str == '%')
+		{
+			len += ft_check_format(args, *str + 1);
+			str++;
+		}
+		str++;
+	}
+	va_end(args);
 	return (len);
 }

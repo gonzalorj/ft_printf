@@ -6,7 +6,7 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:07:12 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/07 16:11:57 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/07 16:22:31 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_ptrlen(intptr_t str)
 	return (len);
 }
 
-int	ft_putptr(intptr_t ptr)
+void	ft_putptr(intptr_t ptr)
 {
 	while (ptr > 16)
 	{
@@ -40,7 +40,7 @@ int	ft_putptr(intptr_t ptr)
 	}
 }
 
-int	ft_putptr(intptr_t ptr)
+int	ft_printptr(intptr_t ptr)
 {
 	ft_putptr(ptr);
 	return (ft_ptrlen(ptr));
