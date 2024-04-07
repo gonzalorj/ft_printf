@@ -1,44 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printhex.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/03 15:12:43 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/04 15:52:42 by gorodrig         ###   ########.fr       */
+/*   Created: 2024/04/07 13:48:56 by gorodrig          #+#    #+#             */
+/*   Updated: 2024/04/07 14:04:14 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_printhex(int nb)
+int ft_putnbr(int n)
 {
-	char hex[10];
-	int rest;
-	int i;
+	int len;
 
-	i = 0;
-	while (nb != 0)
+	len = 0;
+	if (n < 0)
 	{
-		rest = nb % 16;
-		if (rest < 10)
-			hex[i] = rest + 48;
-		else 
-			hex[i] = rest + 65;
-		nb /= 16;
-		i++;
+		ft_putchar('-');
+		n = -n;
+		len++;
 	}
-	return (hex);
+	if (n >= 10)
+	{
+		len = ft_putnbr(n / 10);
+		n %= 10;
+	}
+	if (n < 10)
+	{
+		ft_putchar(n + '0');
+		len ++;
+	}
+	return (len);
 }
 
-#include <stdio.h>
-int main ()
+int ft_put_unsignednbr(int n)
 {
-	int nb = 123;
+	int len;
 
-	char *result = ft_printhex(nb);
-
-	printf("%s", result);
-	return 0;
+	len = 0;
+	if (n >= 10)
+	{
+		len = ft_put_unsignednbr(n / 10);
+		n %= 10;
+	}
+	if (n < 10)
+	{
+		ft_putchar(n + '0');
+		len ++;
+	}
+	return (len);
 }

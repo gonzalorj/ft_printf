@@ -6,48 +6,52 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:58:49 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/03 15:43:44 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/07 14:07:44 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *str, ...)
+int	ft_printf(const char *format, ...)
 {
-	int rt;
+	va_list args;
+	int		len;
 
-	rt = 0;
-	while (*str)
-		if (str == '%')
+	len = 0;
+	va_start (args, format);
+	while (*format)
+	{
+		if (*format == '%')
 		{
-			str++;
-			ft_check_type(str, arg)
+			len += ft_check_format(*format + 1, args);
+			format++;
 		}
-
+		format++;
+	}
+	va_end(args);
+	return(len);
 }
 
-static int ft_check_type(char *str, void *arg)
+static int ft_check_format(va_list arg, const char format)
 {
-	int rt;
+	int len;
 
-	rt = 0;
-	if (*str == 'c')
-		rt = ft_putchar_fd();
-	else if (*str == 's')
-		rt = ft_putstr_fd();
-	else if (*str == 'p')
-		rt = ft_puthexvoid;
-	else if (*str == 'd')
-		rt = ft_putnbr_fd;
-	else if (*str == 'i')
-		rt = ft_putnbr_fd;
-	else if (*str == 'u')
-		rt = ft_putnbrunsigned;
-	else if (*str == 'x')
-		rt = ft_hexmin;
-	else if (*str == 'X')
-		rt = ft_hexmay;
-	else if (*str == '%')
-		rt = ft_putchar_fd;
-	return (rt);
+	len = 0;
+	if (format == 'c')
+			len += ft_putchar(va_arg(arg, char));
+		else if (format == 's')
+			len += ft_putstr(va_arg(arg, char*));
+		else if (format == 'p')
+			len += ft_putptr(va_arg(arg, intptr_t));
+		else if (format == 'd' || format == 'i')
+			len += ft_putnbr(va_arg(arg, int));
+		else if (format == 'u')
+			len += ft_put_unsignednbr(va_arg(arg, int));
+		else if (format == 'x' || format == 'X')
+			len += ft_printhex(va_arg(arg, int), format);
+		else if (format == '%')
+			len += ft_putchar('%');
+		else 
+			len += ft_putchar(format);
+	return (len);
 }

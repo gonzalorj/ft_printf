@@ -6,13 +6,14 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 15:00:17 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/03 15:43:33 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/07 14:03:37 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
