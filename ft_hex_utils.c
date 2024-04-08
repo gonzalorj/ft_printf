@@ -6,13 +6,13 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 11:48:54 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/08 12:19:36 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:47:13 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexlen(int n)
+int	ft_hexlen(unsigned int n)
 {
 	int	len;
 
@@ -25,9 +25,9 @@ int	ft_hexlen(int n)
 	return (len);
 }
 
-void	ft_puthex(int n, const char format)
+void	ft_puthex(unsigned int n, const char format)
 {
-	if (n > 16)
+	if (n >= 16)
 	{
 		ft_puthex(n / 16, format);
 		ft_puthex(n % 16, format);
@@ -44,8 +44,12 @@ void	ft_puthex(int n, const char format)
 	}
 }
 
-int	ft_printhex(int n, const char format)
+int	ft_printhex(unsigned int n, const char format)
 {
+	if (n == 0)
+	{
+		return (ft_putchar('0'));
+	}
 	ft_puthex(n, format);
 	return (ft_hexlen(n));
 }

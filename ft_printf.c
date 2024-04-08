@@ -6,7 +6,7 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:58:49 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/08 13:06:27 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/08 13:49:45 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,25 @@ int main()
 	ft_printf("%u\n", 10);
 	ft_printf("%u\n", -1);
 	ft_printf("%u\n", J3123);
-	
-		
+	ft_printf("%s", "%x tests");
+	ft_printf("%s\n", "---------------------------------");
+	ft_printf("%x\n", 0);
+	ft_printf("%x\n", 1);
+	ft_printf("%x\n", 10);
+	ft_printf("%x\n", 16);
+	ft_printf("%x\n", -1);
+	ft_printf("%x\n", -12);
+	ft_printf("%s", "%X tests");
+	ft_printf("%s\n", "---------------------------------");
+	ft_printf("%X\n", 0);
+	ft_printf("%X\n", 1);
+	ft_printf("%X\n", 10);
+	ft_printf("%X\n", 16);
+	ft_printf("%X\n", -1);
+	ft_printf("%X\n", -12);
+	ft_printf("%s", "%% tests");
+	ft_printf("%s\n", "---------------------------------");
+	ft_printf("%%\n");	
 	return (0);
 }
 */
