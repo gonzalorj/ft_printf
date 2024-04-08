@@ -6,7 +6,7 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 11:48:54 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/07 16:11:59 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/08 12:19:36 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int	ft_hexlen(int n)
 
 void	ft_puthex(int n, const char format)
 {
-	while (n > 16)
+	if (n > 16)
 	{
 		ft_puthex(n / 16, format);
 		ft_puthex(n % 16, format);
 	}
-	if (n < 10)
+	else if (n < 10)
 		ft_putchar(n + '0');
 	else if (format == 'X')
 	{
