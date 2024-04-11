@@ -6,22 +6,20 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 12:07:12 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/08 12:56:17 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/09 11:19:35 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_ptrlen(unsigned long long str)
+int	ft_ptrlen(unsigned long long ptr)
 {
 	int	len;
 
 	len = 0;
-	if (str == 0)
-		return (-1);
-	while (str != 0)
+	while (ptr != 0)
 	{
-		str /= 16;
+		ptr /= 16;
 		len++;
 	}
 	return (len);

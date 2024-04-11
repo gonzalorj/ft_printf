@@ -6,7 +6,7 @@
 /*   By: gorodrig <gorodrig@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:58:49 by gorodrig          #+#    #+#             */
-/*   Updated: 2024/04/08 15:48:13 by gorodrig         ###   ########.fr       */
+/*   Updated: 2024/04/09 11:01:57 by gorodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (len);
 }
-
