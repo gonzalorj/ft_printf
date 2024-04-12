@@ -36,7 +36,7 @@ $(NAME): $(OBJECTS)
 clean:
 	@$(RM) $(OBJECTS)
 
-fclean: 
+fclean: clean 
 	@$(RM) $(NAME)
 
 re: fclean all
