@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-int	ft_ptrlen(unsigned long long ptr)
+int ft_ptrlen(unsigned long long ptr)
 {
-	int	len;
+	int len;
 
 	len = 0;
 	while (ptr != 0)
@@ -25,9 +25,9 @@ int	ft_ptrlen(unsigned long long ptr)
 	return (len);
 }
 
-void	ft_putptr(unsigned long long ptr)
+void ft_putptr(unsigned long long ptr)
 {
-	if (ptr > 15)
+	if (ptr >= 16)
 	{
 		ft_putptr(ptr / 16);
 		ft_putptr(ptr % 16);
@@ -40,9 +40,9 @@ void	ft_putptr(unsigned long long ptr)
 	}
 }
 
-int	ft_printptr(unsigned long long ptr)
+int ft_printptr(unsigned long long ptr)
 {
-	int	len;
+	int len;
 
 	len = 0;
 	if (ptr == 0)
